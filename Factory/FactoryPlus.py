@@ -2,26 +2,55 @@
 # VScode
 
 class AbstractCharFactoryFactory:
-    pass
+    def get_factory(living: bool):
+        if living:
+            return LivingCharFactory()
+        else:
+            return UndeadCharFactory()
 
-class CharFactory:
-    pass
+class AbstractCharFactory:
+    def get_char(self, get_char: str):
+        pass
 
-class UndeadCharFactory(CharFactory):
-    pass
+class UndeadCharFactory(AbstractCharFactory):
+    def get_char(self, get_char: str):
+        if get_char == "dog":
+            return UndeadDog()
+        elif get_char == "human":
+            return UndeadHuman()
+        return None
 
-class LivingCharFactory(CharFactory):
-    pass
+class LivingCharFactory(AbstractCharFactory):
+    def get_char(self, get_char: str):
+        if get_char == "dog":
+            return LivingDog()
+        elif get_char == "human":
+            return LivingHuman()
+        return None
 
 class Character:
-    pass
+    def attack(self) -> None:
+        pass
 
 class LivingHuman(Character):
-    pass
+    def attack(self):
+        print("Living Human attacks")
 
 class UndeadHuman(Character):
-    pass
+    def attack(self):
+        print("Undead Human attacks")
 
 class LivingDog(Character):
-    pass
+    def attack(self):
+        print("Living Dog attacks")
 
+class UndeadDog(Character):
+    def attack(self):
+        print("Undead Dog attacks")
+
+
+factory = AbstractCharFactoryFactory.get_factory(False)
+
+char = factory.get_char("dog")
+
+char.attack()
