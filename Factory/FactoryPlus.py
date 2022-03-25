@@ -1,5 +1,4 @@
 # Could be used in a game where living and undead versions of characters are very distinct
-# 
 
 class AbstractCharFactoryFactory:
     pass
