@@ -1,4 +1,5 @@
 # Could be used in a game where living and undead versions of characters are very distinct
+# VScode
 
 class AbstractCharFactoryFactory:
     pass
