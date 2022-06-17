@@ -8,9 +8,11 @@ class AbstractCharFactoryFactory:
         else:
             return UndeadCharFactory()
 
+
 class AbstractCharFactory:
     def get_char(self, get_char: str):
         pass
+
 
 class UndeadCharFactory(AbstractCharFactory):
     def get_char(self, get_char: str):
@@ -20,6 +22,7 @@ class UndeadCharFactory(AbstractCharFactory):
             return UndeadHuman()
         return None
 
+
 class LivingCharFactory(AbstractCharFactory):
     def get_char(self, get_char: str):
         if get_char == "dog":
@@ -28,21 +31,26 @@ class LivingCharFactory(AbstractCharFactory):
             return LivingHuman()
         return None
 
+
 class Character:
     def attack(self) -> None:
         pass
+
 
 class LivingHuman(Character):
     def attack(self):
         print("Living Human attacks")
 
+
 class UndeadHuman(Character):
     def attack(self):
         print("Undead Human attacks")
 
+
 class LivingDog(Character):
     def attack(self):
         print("Living Dog attacks")
+
 
 class UndeadDog(Character):
     def attack(self):
